@@ -1,0 +1,28 @@
+{
+  "country": "es",
+  "language": "es",
+  "englishTrackEnabled": true,
+  "avatars": {
+    "official": "Анна",
+    "everyday": "Виктор"
+  },
+  "scenarios": [
+    { "id": "es-empadronamiento", "title": "Регистрация по месту жительства (Empadronamiento)", "avatar": "official", "phrases": [] },
+    { "id": "es-nie-tie", "title": "Иностранный номер / карта резидента (NIE / TIE)", "avatar": "official", "phrases": [] },
+    { "id": "es-seguridad-social", "title": "Seguridad Social", "avatar": "official", "phrases": [] },
+    { "id": "es-centro-salud", "title": "Поликлиника (Centro de Salud)", "avatar": "official", "phrases": [] },
+    { "id": "es-farmacia", "title": "Аптека (Farmacia)", "avatar": "everyday", "phrases": [] },
+    { "id": "es-bank", "title": "Банк / открытие счёта", "avatar": "official", "phrases": [] },
+    { "id": "es-vivienda", "title": "Аренда жилья", "avatar": "everyday", "phrases": [] },
+    { "id": "es-kommunal", "title": "Коммунальные службы (luz / agua / gas)", "avatar": "everyday", "phrases": [] },
+    { "id": "es-correos", "title": "Почта (Correos)", "avatar": "everyday", "phrases": [] },
+    { "id": "es-transport", "title": "Транспорт", "avatar": "everyday", "phrases": [] },
+    { "id": "es-sepe", "title": "Трудоустройство (SEPE)", "avatar": "official", "phrases": [] },
+    { "id": "es-shkola", "title": "Школа / детский сад", "avatar": "official", "phrases": [] },
+    { "id": "es-peluqueria", "title": "Парикмахерская (Peluquería)", "avatar": "everyday", "phrases": [] },
+    { "id": "es-cafe", "title": "Кафе / ресторан", "avatar": "everyday", "phrases": [] },
+    { "id": "es-itv", "title": "Автосервис / ITV", "avatar": "everyday", "phrases": [] },
+    { "id": "es-policiya", "title": "Полиция (не миграционная)", "avatar": "official", "phrases": [] },
+    { "id": "es-remont", "title": "Ремонт / мастер на дом", "avatar": "everyday", "phrases": [] }
+  ]
+}
