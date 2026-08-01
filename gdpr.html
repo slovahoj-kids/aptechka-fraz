@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Политика конфиденциальности — Аптечка фраз</title>
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F1F4F7;--card:#fff;--ink:#142033;--ink-soft:#5C6B7D;--muted:#9AA4B0;--border:#D7DEE6;--blue:#0B4EA2;}
+  *{box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;margin:0;line-height:1.6;}
+  .wrap{max-width:720px;margin:0 auto;padding:28px 20px 60px;}
+  a{color:var(--blue);}
+  .back{display:inline-block;margin-bottom:20px;color:var(--ink-soft);text-decoration:none;font-weight:600;font-size:14.5px;}
+  h1{font-weight:800;font-size:24px;margin:0 0 6px;}
+  h2{font-weight:700;font-size:17px;margin:30px 0 10px;}
+  p,li{font-size:15px;color:var(--ink-soft);}
+  ul{padding-left:20px;}
+  li{margin-bottom:6px;}
+  .updated{font-size:13px;color:var(--muted);margin-bottom:24px;}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;}
+  th,td{text-align:left;padding:9px 10px;border:1px solid var(--border);vertical-align:top;}
+  th{background:#E9EEF3;font-weight:700;}
+  .contact-box{margin-top:34px;padding:18px;background:var(--card);border:1px solid var(--border);border-radius:14px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">← Назад к Аптечке фраз</a>
+  <h1>Политика конфиденциальности</h1>
+  <p class="updated">Последнее обновление: 1 августа 2026</p>
+
+  <p>Оператором сайта aptechkafraz.com и обработчиком персональных данных является <strong>DAGNY s. r. o.</strong>, юридический адрес Račianska 88 B, 831 02 Bratislava, Словацкая Республика, IČO: 46 157 107, DIČ: 2023259282 (далее — «Оператор», «мы»). Настоящая политика объясняет, какие персональные данные мы обрабатываем, с какой целью, на каком правовом основании и какие права у вас есть.</p>
+
+  <h2>1. Какие данные мы обрабатываем</h2>
+  <table>
+    <tr><th>Данные</th><th>Цель</th></tr>
+    <tr><td>Email-адрес</td><td>Идентификация оплаты, предоставление доступа к платным темам, связь со службой поддержки</td></tr>
+    <tr><td>Платёжные данные</td><td>Обрабатываются исключительно платёжным шлюзом Stripe — мы не имеем доступа к номеру карты</td></tr>
+    <tr><td>Аудиозапись голоса (только в режиме «Практика»)</td><td>Временно передаётся в сервис Microsoft Azure Speech для оценки произношения в реальном времени; на наших серверах не сохраняется</td></tr>
+    <tr><td>IP-адрес (технически, кратковременно)</td><td>Защита от злоупотреблений (например, автоматизированных попыток перебора доступа)</td></tr>
+  </table>
+  <p>Мы не регистрируем имя, адрес и другие идентифицирующие данные, если вы сами добровольно не укажете их в контактной форме.</p>
+
+  <h2>2. Правовое основание обработки</h2>
+  <ul>
+    <li><strong>Исполнение договора</strong> (ст. 6(1)(b) GDPR) — email и платёжные данные необходимы для предоставления платного доступа.</li>
+    <li><strong>Согласие</strong> (ст. 6(1)(a) GDPR) — использование микрофона в режиме «Практика» добровольно; без согласия на доступ к микрофону эта функция просто недоступна, остальная часть приложения работает без ограничений.</li>
+    <li><strong>Законный интерес</strong> (ст. 6(1)(f) GDPR) — кратковременные технические записи IP-адреса для защиты от злоупотреблений.</li>
+  </ul>
+
+  <h2>3. Кому мы передаём данные (обработчики)</h2>
+  <table>
+    <tr><th>Сервис</th><th>Цель</th></tr>
+    <tr><td>Stripe</td><td>Обработка оплаты подписки</td></tr>
+    <tr><td>Vercel / Upstash (Vercel KV)</td><td>Хостинг сайта и база данных доступов (email, статус подписки)</td></tr>
+    <tr><td>ElevenLabs</td><td>Генерация озвучки фраз (не связана с персональными данными пользователей)</td></tr>
+    <tr><td>Microsoft Azure Speech</td><td>Оценка произношения в режиме «Практика» (только если вы используете эту функцию)</td></tr>
+  </table>
+  <p>Мы не продаём и не передаём эти данные третьим лицам в рекламных целях.</p>
+
+  <h2>4. Срок хранения</h2>
+  <p>Данные об аккаунте (email, статус подписки) хранятся, пока ваш доступ активен, и ещё разумный срок после отмены подписки на случай рекламации или налогово-бухгалтерской обязанности. Аудиозаписи с микрофона на наших серверах вообще не сохраняются — они обрабатываются в реальном времени и сразу удаляются.</p>
+
+  <h2>5. Ваши права</h2>
+  <ul>
+    <li>Право на доступ к своим данным</li>
+    <li>Право на исправление неверных данных</li>
+    <li>Право на удаление («право быть забытым»)</li>
+    <li>Право на ограничение обработки</li>
+    <li>Право на переносимость данных</li>
+    <li>Право возражать против обработки</li>
+    <li>Право подать жалобу в Управление по защите персональных данных Словацкой Республики (dataprotection.gov.sk)</li>
+  </ul>
+  <p>Для реализации любого из этих прав напишите нам на email ниже — отвечаем в течение 30 дней.</p>
+
+  <h2>6. Cookies и локальное хранилище</h2>
+  <p>Aptechkafraz.com не использует рекламные cookies слежения. Для хранения email на вашем устройстве после проверки доступа мы используем локальное хранилище браузера (localStorage) — эти данные не покидают ваше устройство, кроме момента проверки на нашем сервере. Загрузка шрифтов через Google Fonts может технически отправить ваш IP-адрес компании Google — это обычная часть работы сайта, а не слежение.</p>
+
+  <div class="contact-box">
+    <h2 style="margin-top:0;">Вопросы по защите данных</h2>
+    <p style="margin-bottom:0;">Напишите нам на <a href="mailto:slovahoj.kids@gmail.com">slovahoj.kids@gmail.com</a> или через <a href="/faq.html#contact">контактную форму</a>.</p>
+  </div>
+</div>
+</body>
+</html>

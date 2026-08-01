@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Частые вопросы — Аптечка фраз</title>
+<meta name="description" content="Ответы на частые вопросы об Аптечке фраз: оплата, доступ, режим Практика и контактная форма.">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F4F7;--card:#fff;--ink:#142033;--ink-soft:#5C6B7D;--muted:#9AA4B0;
+    --border:#D7DEE6;--blue:#0B4EA2;--blue-dark:#083A7A;
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;margin:0;line-height:1.55;}
+  .wrap{max-width:720px;margin:0 auto;padding:20px 20px 60px;}
+  a{color:var(--blue);}
+  .back{display:inline-block;color:var(--ink-soft);text-decoration:none;font-weight:600;font-size:14.5px;margin-bottom:20px;}
+  h1{font-weight:800;font-size:26px;margin:0 0 6px;}
+  .sub{color:var(--ink-soft);font-size:15px;margin-bottom:26px;}
+  h2.section{font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:0.04em;color:var(--blue-dark);margin:32px 0 12px;}
+  details{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:15px 16px;margin-bottom:10px;}
+  summary{font-weight:700;font-size:15.5px;cursor:pointer;list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  summary::before{content:"+ ";color:var(--blue);}
+  details[open] summary::before{content:"– ";}
+  details p{margin:10px 0 0;font-size:14.5px;color:var(--ink-soft);}
+  details a{font-weight:600;}
+
+  .contact-box{margin-top:38px;padding:22px;background:var(--card);border:1px solid var(--border);border-radius:12px;}
+  .contact-box h2{font-size:18px;margin:0 0 6px;}
+  .contact-box .sub{font-size:14px;margin-bottom:16px;}
+  .field{margin-bottom:12px;}
+  .field label{display:block;font-size:13px;font-weight:700;color:var(--ink-soft);margin-bottom:5px;}
+  .field input,.field textarea{width:100%;padding:13px 14px;border-radius:8px;border:1px solid var(--border);background:#fff;font-size:15px;font-family:'Inter',sans-serif;}
+  .field textarea{min-height:100px;resize:vertical;}
+  .field input:focus,.field textarea:focus{outline:2px solid var(--blue);outline-offset:1px;}
+  .hp{position:absolute;left:-9999px;}
+  .submit-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:14px 18px;font-size:15.5px;font-weight:700;width:100%;cursor:pointer;}
+  .submit-btn:disabled{opacity:0.6;}
+  .form-msg{font-size:14px;padding:10px 12px;border-radius:8px;margin-bottom:12px;display:none;}
+  .form-msg.show{display:block;}
+  .form-msg.error{background:#FBE9E9;color:#A83232;}
+  .form-msg.success{background:#E9F2E4;color:#3E7B34;}
+  .legal-links{margin-top:30px;font-size:13.5px;color:var(--muted);text-align:center;}
+  .legal-links a{color:var(--muted);margin:0 6px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">← Назад к Аптечке фраз</a>
+
+  <h1>Частые вопросы</h1>
+  <p class="sub">Не нашли ответ? Форма для вопросов — внизу страницы.</p>
+
+  <h2 class="section">Общее</h2>
+
+  <details>
+    <summary>Что такое Аптечка фраз?</summary>
+    <p>Карманный разговорник немецких и испанских фраз для русскоязычных — не языковой курс. Открываешь нужную тему (Anmeldung, поликлиника, банк и т.д.), видишь готовую фразу с озвучкой и говоришь её вслух. Идея в том, чтобы не подбирать слова на ходу, а иметь их под рукой — как аптечку.</p>
+  </details>
+
+  <details>
+    <summary>Чем это отличается от языкового курса?</summary>
+    <p>Курс учит язык постепенно, шаг за шагом. Аптечка фраз — наоборот, справочник: открыл тему в нужный момент (например, стоя в очереди), нашёл фразу, нажал, услышал, сказал. Нет уроков, нет порядка прохождения.</p>
+  </details>
+
+  <details>
+    <summary>Какие темы доступны бесплатно?</summary>
+    <p>Первые 5 тем в каждом направлении (Германия и Испания) — навсегда бесплатно, без регистрации.</p>
+  </details>
+
+  <h2 class="section">Оплата</h2>
+
+  <details>
+    <summary>Сколько стоит полный доступ?</summary>
+    <p>7 € в месяц за каждое направление отдельно (Германия или Испания). Это открывает остальные темы и режим «Практика» с оценкой произношения. Оплата — через защищённую платёжную систему Stripe.</p>
+  </details>
+
+  <details>
+    <summary>Как отменить подписку?</summary>
+    <p>Напишите нам через <a href="#contact">контактную форму</a> или на slovahoj.kids@gmail.com — отменим продление, доступ останется активным до конца уже оплаченного периода.</p>
+  </details>
+
+  <details>
+    <summary>Можно ли вернуть деньги?</summary>
+    <p>Поскольку доступ к контенту открывается сразу после оплаты, по общему правилу ЕС на цифровой контент право на возврат в течение 14 дней не действует после начала использования. Но если что-то не работает технически с нашей стороны — обязательно напишите нам, разберёмся. Детали в <a href="/vop.html">Условиях использования</a>.</p>
+  </details>
+
+  <h2 class="section">Доступ и вход</h2>
+
+  <details>
+    <summary>Как войти с другого устройства?</summary>
+    <p>Введите тот же email, которым оформляли подписку, в поле входа на нужной странице (Германия или Испания) — доступ проверится автоматически.</p>
+  </details>
+
+  <details>
+    <summary>Я оплатил Германию, а доступ к Испании не открылся — это нормально?</summary>
+    <p>Да, это по правилам сервиса: направления «Германия» и «Испания» — отдельные подписки. Оплата за одно направление не даёт доступа к другому.</p>
+  </details>
+
+  <h2 class="section">Режим «Практика»</h2>
+
+  <details>
+    <summary>Обязательно ли использовать микрофон?</summary>
+    <p>Нет, это полностью опциональная функция. Без доступа к микрофону приложение работает обычным образом — читаешь фразу, слушаешь озвучку.</p>
+  </details>
+
+  <details>
+    <summary>Сохраняется ли запись моего голоса?</summary>
+    <p>Нет. Аудио с микрофона передаётся напрямую в сервис Microsoft Azure для оценки произношения в реальном времени и на наших серверах не сохраняется. Подробнее — в <a href="/gdpr.html">Политике конфиденциальности</a>.</p>
+  </details>
+
+  <div class="legal-links">
+    <a href="/gdpr.html">Политика конфиденциальности</a> ·
+    <a href="/vop.html">Условия использования</a>
+  </div>
+
+  <div class="contact-box" id="contact">
+    <h2>Не нашли ответ?</h2>
+    <p class="sub">Напишите нам — отвечаем лично, обычно в течение одного дня.</p>
+    <div class="form-msg" id="formMsg"></div>
+    <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" id="hp">
+    <div class="field">
+      <label>Имя</label>
+      <input type="text" id="cName" placeholder="Ваше имя">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" id="cEmail" placeholder="you@email.com">
+    </div>
+    <div class="field">
+      <label>Сообщение</label>
+      <textarea id="cMessage" placeholder="Опишите вопрос или проблему..."></textarea>
+    </div>
+    <button class="submit-btn" id="cSubmit" onclick="submitContact()">Отправить</button>
+  </div>
+</div>
+
+<script>
+async function submitContact(){
+  const name = document.getElementById('cName').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const message = document.getElementById('cMessage').value.trim();
+  const website = document.getElementById('hp').value; // honeypot
+  const msgEl = document.getElementById('formMsg');
+  const btn = document.getElementById('cSubmit');
+
+  if(!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    msgEl.textContent = 'Заполните имя, корректный email и сообщение.';
+    msgEl.className = 'form-msg show error';
+    return;
+  }
+
+  const originalText = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Отправляем...';
+  try{
+    const res = await fetch('/api/contact', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ name, email, message, website }),
+    });
+    const data = await res.json();
+    if(!res.ok || !data.ok){
+      msgEl.textContent = data.error || 'Не удалось отправить. Попробуйте снова или напишите на slovahoj.kids@gmail.com';
+      msgEl.className = 'form-msg show error';
+      btn.disabled = false; btn.textContent = originalText;
+      return;
+    }
+    msgEl.textContent = 'Спасибо! Мы получили ваше сообщение и ответим в ближайшее время.';
+    msgEl.className = 'form-msg show success';
+    document.getElementById('cName').value = '';
+    document.getElementById('cEmail').value = '';
+    document.getElementById('cMessage').value = '';
+    btn.disabled = false; btn.textContent = originalText;
+  } catch(e){
+    msgEl.textContent = 'Нет соединения. Попробуйте снова или напишите на slovahoj.kids@gmail.com';
+    msgEl.className = 'form-msg show error';
+    btn.disabled = false; btn.textContent = originalText;
+  }
+}
+
+if(window.location.hash === '#contact'){
+  document.getElementById('contact').scrollIntoView();
+}
+</script>
+</body>
+</html>
