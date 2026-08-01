@@ -1,0 +1,226 @@
+{
+  "country": "es",
+  "language": "es",
+  "englishTrackEnabled": true,
+  "avatars": {
+    "official": "Анна",
+    "everyday": "Виктор"
+  },
+  "universalModule": {
+    "avatar": "official",
+    "phrases": [
+      { "ru": "Извините, я не понимаю.", "es": "Perdón, no entiendo.", "en": "Sorry, I don't understand." },
+      { "ru": "Можете повторить?", "es": "¿Puede repetirlo?", "en": "Can you repeat that?" },
+      { "ru": "Говорите медленнее, пожалуйста.", "es": "Hable más despacio, por favor.", "en": "Please speak more slowly." },
+      { "ru": "Можете это написать?", "es": "¿Puede escribirlo?", "en": "Can you write that down?" },
+      { "ru": "Вы говорите по-английски?", "es": "¿Habla usted inglés?", "en": "Do you speak English?" },
+      { "ru": "Ещё раз, пожалуйста.", "es": "Otra vez, por favor.", "en": "Once more, please." },
+      { "ru": "Что это значит?", "es": "¿Qué significa eso?", "en": "What does that mean?" },
+      { "ru": "Минутку, посмотрю в телефоне.", "es": "Un momento, lo miro en el teléfono.", "en": "One moment, I'll check on my phone." },
+      { "ru": "ноль", "es": "cero", "en": "zero" },
+      { "ru": "один", "es": "uno", "en": "one" },
+      { "ru": "два", "es": "dos", "en": "two" },
+      { "ru": "три", "es": "tres", "en": "three" },
+      { "ru": "четыре", "es": "cuatro", "en": "four" },
+      { "ru": "пять", "es": "cinco", "en": "five" },
+      { "ru": "шесть", "es": "seis", "en": "six" },
+      { "ru": "семь", "es": "siete", "en": "seven" },
+      { "ru": "восемь", "es": "ocho", "en": "eight" },
+      { "ru": "девять", "es": "nueve", "en": "nine" },
+      { "ru": "десять", "es": "diez", "en": "ten" }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "es-empadronamiento",
+      "title": "Регистрация по месту жительства (Empadronamiento)",
+      "avatar": "official",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу прописаться по этому адресу.", "es": "Buenos días, quiero empadronarme en esta dirección.", "en": "Hello, I would like to register at this address." },
+        { "ru": "Вот мой паспорт и договор аренды.", "es": "Aquí está mi pasaporte y el contrato de alquiler.", "en": "Here is my passport and rental agreement." },
+        { "ru": "Когда будет готов сертификат о прописке?", "es": "¿Cuándo estará listo el certificado de empadronamiento?", "en": "When will the registration certificate be ready?" },
+        { "ru": "Мне нужна ещё одна копия.", "es": "Necesito una copia más.", "en": "I need one more copy." },
+        { "ru": "Извините, повторите, пожалуйста, медленнее.", "es": "Perdón, ¿puede repetirlo más despacio, por favor?", "en": "Sorry, could you repeat that more slowly, please?" }
+      ]
+    },
+    {
+      "id": "es-nie-tie",
+      "title": "Иностранный номер / карта резидента (NIE / TIE)",
+      "avatar": "official",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу подать заявление на NIE.", "es": "Buenos días, quiero solicitar el NIE.", "en": "Hello, I would like to apply for the NIE." },
+        { "ru": "У меня назначена встреча на сегодня.", "es": "Tengo una cita para hoy.", "en": "I have an appointment for today." },
+        { "ru": "Какие документы мне нужны?", "es": "¿Qué documentos necesito?", "en": "What documents do I need?" },
+        { "ru": "Когда я получу карту TIE?", "es": "¿Cuándo recibiré la tarjeta TIE?", "en": "When will I receive the TIE card?" },
+        { "ru": "Могу я записаться на другую дату?", "es": "¿Puedo pedir cita para otra fecha?", "en": "Can I book an appointment for another date?" }
+      ]
+    },
+    {
+      "id": "es-seguridad-social",
+      "title": "Seguridad Social",
+      "avatar": "official",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу получить номер социального страхования.", "es": "Buenos días, quiero obtener el número de la Seguridad Social.", "en": "Hello, I would like to get a Social Security number." },
+        { "ru": "Вот мои документы.", "es": "Aquí están mis documentos.", "en": "Here are my documents." },
+        { "ru": "Как проверить статус моего заявления?", "es": "¿Cómo puedo comprobar el estado de mi solicitud?", "en": "How can I check the status of my application?" },
+        { "ru": "Когда я смогу пойти к врачу по этой карте?", "es": "¿Cuándo podré ir al médico con esta tarjeta?", "en": "When can I go to the doctor with this card?" }
+      ]
+    },
+    {
+      "id": "es-centro-salud",
+      "title": "Поликлиника (Centro de Salud)",
+      "avatar": "official",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу записаться на приём к врачу.", "es": "Buenos días, quiero pedir una cita con el médico.", "en": "Hello, I would like to make a doctor's appointment." },
+        { "ru": "У меня болит [часть тела].", "es": "Me duele [parte del cuerpo].", "en": "I have pain in [body part]." },
+        { "ru": "У меня аллергия на [лекарство].", "es": "Soy alérgico/a a [medicamento].", "en": "I am allergic to [medication]." },
+        { "ru": "Мне нужен рецепт.", "es": "Necesito una receta.", "en": "I need a prescription." },
+        { "ru": "Мне нужна медицинская справка.", "es": "Necesito un justificante médico.", "en": "I need a medical certificate." }
+      ]
+    },
+    {
+      "id": "es-farmacia",
+      "title": "Аптека (Farmacia)",
+      "avatar": "everyday",
+      "phrases": [
+        { "ru": "Здравствуйте, у вас есть это лекарство?", "es": "Buenos días, ¿tiene este medicamento?", "en": "Hello, do you have this medication?" },
+        { "ru": "У меня рецепт от врача.", "es": "Tengo una receta del médico.", "en": "I have a prescription from the doctor." },
+        { "ru": "Что вы посоветуете от [симптом]?", "es": "¿Qué me recomienda para [síntoma]?", "en": "What would you recommend for [symptom]?" },
+        { "ru": "Сколько это стоит?", "es": "¿Cuánto cuesta?", "en": "How much does it cost?" }
+      ]
+    },
+    {
+      "id": "es-bank",
+      "title": "Банк / открытие счёта",
+      "avatar": "official",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу открыть счёт.", "es": "Buenos días, quiero abrir una cuenta.", "en": "Hello, I would like to open a bank account." },
+        { "ru": "Какие документы нужны?", "es": "¿Qué documentos necesito?", "en": "What documents do I need?" },
+        { "ru": "Есть ли комиссия за обслуживание?", "es": "¿Hay comisión de mantenimiento?", "en": "Is there a maintenance fee?" },
+        { "ru": "Когда я получу карту?", "es": "¿Cuándo recibiré la tarjeta?", "en": "When will I get the card?" }
+      ]
+    },
+    {
+      "id": "es-vivienda",
+      "title": "Аренда жилья",
+      "avatar": "everyday",
+      "phrases": [
+        { "ru": "Здравствуйте, эта квартира ещё сдаётся?", "es": "Buenos días, ¿este piso todavía está disponible?", "en": "Hello, is this apartment still available?" },
+        { "ru": "Можно посмотреть квартиру?", "es": "¿Puedo ver el piso?", "en": "Can I view the apartment?" },
+        { "ru": "Какой размер залога?", "es": "¿Cuánto es la fianza?", "en": "How much is the deposit?" },
+        { "ru": "Коммунальные платежи включены?", "es": "¿Están incluidos los suministros (agua, luz, gas)?", "en": "Are utilities (water, electricity, gas) included?" },
+        { "ru": "Когда я могу заехать?", "es": "¿Cuándo puedo mudarme?", "en": "When can I move in?" }
+      ]
+    },
+    {
+      "id": "es-kommunal",
+      "title": "Коммунальные службы (luz / agua / gas)",
+      "avatar": "everyday",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу подключить свет/воду/газ.", "es": "Buenos días, quiero dar de alta la luz/el agua/el gas.", "en": "Hello, I would like to set up electricity/water/gas." },
+        { "ru": "Как передать показания счётчика?", "es": "¿Cómo comunico la lectura del contador?", "en": "How do I submit the meter reading?" },
+        { "ru": "Я хочу оплатить счёт.", "es": "Quiero pagar la factura.", "en": "I would like to pay the bill." },
+        { "ru": "Куда сообщить об аварии?", "es": "¿Dónde informo de una avería?", "en": "Where do I report an outage/malfunction?" }
+      ]
+    },
+    {
+      "id": "es-correos",
+      "title": "Почта (Correos)",
+      "avatar": "everyday",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу отправить посылку.", "es": "Buenos días, quiero enviar un paquete.", "en": "Hello, I would like to send a parcel." },
+        { "ru": "Сколько это будет стоить?", "es": "¿Cuánto costará?", "en": "How much will it cost?" },
+        { "ru": "У меня уведомление о посылке.", "es": "Tengo un aviso de un paquete.", "en": "I have a parcel notification." },
+        { "ru": "Я хочу купить марки.", "es": "Quiero comprar sellos.", "en": "I would like to buy stamps." }
+      ]
+    },
+    {
+      "id": "es-transport",
+      "title": "Транспорт",
+      "avatar": "everyday",
+      "phrases": [
+        { "ru": "Где купить билет?", "es": "¿Dónde puedo comprar un billete?", "en": "Where can I buy a ticket?" },
+        { "ru": "Мне нужен проездной на месяц.", "es": "Necesito un abono mensual.", "en": "I need a monthly pass." },
+        { "ru": "Этот автобус идёт до [место]?", "es": "¿Este autobús va a [lugar]?", "en": "Does this bus go to [place]?" },
+        { "ru": "Во сколько следующий автобус/поезд?", "es": "¿A qué hora sale el próximo autobús/tren?", "en": "When is the next bus/train?" }
+      ]
+    },
+    {
+      "id": "es-sepe",
+      "title": "Трудоустройство (SEPE)",
+      "avatar": "official",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу зарегистрироваться как ищущий работу.", "es": "Buenos días, quiero inscribirme como demandante de empleo.", "en": "Hello, I would like to register as a job seeker." },
+        { "ru": "Какие документы мне нужны?", "es": "¿Qué documentos necesito?", "en": "What documents do I need?" },
+        { "ru": "Мне нужно подтверждение диплома?", "es": "¿Necesito homologar mi título?", "en": "Do I need my diploma recognized?" },
+        { "ru": "Когда следующая встреча?", "es": "¿Cuándo es la próxima cita?", "en": "When is the next appointment?" }
+      ]
+    },
+    {
+      "id": "es-shkola",
+      "title": "Школа / детский сад",
+      "avatar": "official",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу записать ребёнка в школу.", "es": "Buenos días, quiero matricular a mi hijo/a en el colegio.", "en": "Hello, I would like to enroll my child in school." },
+        { "ru": "Какие документы нужны для записи?", "es": "¿Qué documentos son necesarios para la matrícula?", "en": "What documents are needed for enrollment?" },
+        { "ru": "Есть ли места в этом учебном году?", "es": "¿Hay plazas disponibles este curso?", "en": "Are there places available this school year?" },
+        { "ru": "Есть ли поддержка для детей, не говорящих по-испански?", "es": "¿Hay apoyo para niños que no hablan español?", "en": "Is there support for children who don't speak Spanish?" }
+      ]
+    },
+    {
+      "id": "es-peluqueria",
+      "title": "Парикмахерская (Peluquería)",
+      "avatar": "everyday",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу записаться на стрижку.", "es": "Buenos días, quiero pedir cita para un corte de pelo.", "en": "Hello, I would like to book a haircut appointment." },
+        { "ru": "Покороче, пожалуйста.", "es": "Más corto, por favor.", "en": "Shorter, please." },
+        { "ru": "Не слишком коротко.", "es": "No demasiado corto.", "en": "Not too short." },
+        { "ru": "Сколько это стоит?", "es": "¿Cuánto cuesta?", "en": "How much does it cost?" }
+      ]
+    },
+    {
+      "id": "es-cafe",
+      "title": "Кафе / ресторан",
+      "avatar": "everyday",
+      "phrases": [
+        { "ru": "Столик на [число] человек, пожалуйста.", "es": "Una mesa para [número] personas, por favor.", "en": "A table for [number] people, please." },
+        { "ru": "Можно меню?", "es": "¿Me puede traer la carta, por favor?", "en": "Can I have the menu, please?" },
+        { "ru": "Я буду [блюдо].", "es": "Voy a tomar [plato].", "en": "I will have [dish]." },
+        { "ru": "Счёт, пожалуйста.", "es": "La cuenta, por favor.", "en": "The bill, please." }
+      ]
+    },
+    {
+      "id": "es-itv",
+      "title": "Автосервис / ITV",
+      "avatar": "everyday",
+      "phrases": [
+        { "ru": "Здравствуйте, мне нужен техосмотр машины.", "es": "Buenos días, necesito pasar la ITV.", "en": "Hello, I need to get my car inspected (ITV)." },
+        { "ru": "У моей машины проблема с [деталь].", "es": "Mi coche tiene un problema con [pieza].", "en": "My car has a problem with [part]." },
+        { "ru": "Сколько будет стоить ремонт?", "es": "¿Cuánto costará la reparación?", "en": "How much will the repair cost?" },
+        { "ru": "Когда машина будет готова?", "es": "¿Cuándo estará listo el coche?", "en": "When will the car be ready?" }
+      ]
+    },
+    {
+      "id": "es-policiya",
+      "title": "Полиция (не миграционная)",
+      "avatar": "official",
+      "phrases": [
+        { "ru": "Здравствуйте, я хочу заявить о краже.", "es": "Buenos días, quiero denunciar un robo.", "en": "Hello, I would like to report a theft." },
+        { "ru": "У меня украли [предмет].", "es": "Me han robado [objeto].", "en": "My [item] was stolen." },
+        { "ru": "Мне нужна копия заявления для страховки.", "es": "Necesito una copia de la denuncia para el seguro.", "en": "I need a copy of the report for insurance." },
+        { "ru": "Могу я поговорить с переводчиком?", "es": "¿Puedo hablar con un intérprete?", "en": "Can I speak with an interpreter?" }
+      ]
+    },
+    {
+      "id": "es-remont",
+      "title": "Ремонт / мастер на дом",
+      "avatar": "everyday",
+      "phrases": [
+        { "ru": "Здравствуйте, у меня сломался [прибор].", "es": "Buenos días, se me ha roto [aparato].", "en": "Hello, my [appliance] is broken." },
+        { "ru": "Когда мастер может приехать?", "es": "¿Cuándo puede venir el técnico?", "en": "When can the technician come?" },
+        { "ru": "Сколько будет стоить вызов мастера?", "es": "¿Cuánto cuesta la visita del técnico?", "en": "How much does the house call cost?" },
+        { "ru": "У меня протекает труба, это срочно.", "es": "Se me ha roto una tubería, es urgente.", "en": "I have a burst pipe, it's urgent." }
+      ]
+    }
+  ]
+}
