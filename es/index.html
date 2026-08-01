@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Аптечка фраз — Испания</title>
+<meta name="description" content="Разговорник для русскоязычных в Испании: Empadronamiento, NIE, поликлиника и другое.">
+<link rel="canonical" href="https://aptechkafraz.com/es/">
+<link rel="alternate" hreflang="ru-de" href="https://aptechkafraz.com/es/">
+<link rel="alternate" hreflang="ru-es" href="https://aptechkafraz.com/es/">
+<style>
+  :root{
+    --bg:#F6F3EC; --ink:#1F2A24; --kit:#2E6E5E; --kit-dark:#204E42;
+    --cross:#C0503A; --paper:#FFFFFF; --lock:#B7AE9C;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+  header{padding:20px 20px 8px;max-width:640px;margin:0 auto;}
+  .back{font-size:.85rem;color:var(--kit-dark);text-decoration:none;}
+  h1{font-family:Georgia,serif;font-size:1.6rem;margin:12px 0 4px;}
+  .sub{color:#5C6960;font-size:.92rem;margin:0 0 18px;}
+  main{max-width:640px;margin:0 auto;padding:0 20px 60px;}
+
+  .scenario{background:var(--paper);border:1px solid #E4DFD3;border-radius:14px;
+    margin-bottom:10px;overflow:hidden;}
+  .scenario-head{display:flex;align-items:center;justify-content:space-between;
+    padding:14px 16px;cursor:pointer;}
+  .scenario-title{font-weight:600;font-size:.98rem;}
+  .avatar-tag{font-size:.72rem;color:#8A9591;margin-top:2px;}
+  .chevron{transition:transform .15s ease;color:#9AA69D;}
+  .scenario.open .chevron{transform:rotate(180deg);}
+  .scenario-body{display:none;padding:0 16px 14px;}
+  .scenario.open .scenario-body{display:block;}
+  .scenario.locked .scenario-head{opacity:.55;}
+
+  .phrase{border-top:1px solid #EFEBE2;padding:12px 0;}
+  .phrase:first-child{border-top:none;}
+  .phrase-ru{font-size:.85rem;color:#6B7A72;margin-bottom:4px;}
+  .phrase-target{font-size:1.05rem;font-weight:600;margin-bottom:8px;}
+  .phrase-actions{display:flex;align-items:center;gap:10px;}
+  button.play{border:none;background:var(--kit);color:#fff;border-radius:20px;
+    padding:6px 14px;font-size:.82rem;cursor:pointer;display:flex;align-items:center;gap:6px;}
+  button.play:hover{background:var(--kit-dark);}
+  button.en-toggle{border:1px solid #D8D2C4;background:none;border-radius:20px;
+    padding:5px 10px;font-size:.78rem;cursor:pointer;color:#5C6960;}
+  button.en-toggle.active{border-color:var(--kit);color:var(--kit-dark);background:#EAF3EF;}
+
+  .lock-banner{background:var(--paper);border:1px dashed #D8D2C4;border-radius:14px;
+    padding:20px;text-align:center;margin-top:18px;}
+  .lock-banner p{color:#5C6960;font-size:.9rem;margin:0 0 12px;}
+  .unlock-form{display:flex;gap:8px;max-width:360px;margin:0 auto;}
+  .unlock-form input{flex:1;padding:9px 12px;border-radius:10px;border:1px solid #D8D2C4;font-size:.9rem;}
+  .unlock-form button{background:var(--kit);color:#fff;border:none;border-radius:10px;
+    padding:9px 16px;font-size:.9rem;cursor:pointer;white-space:nowrap;}
+  .unlock-form button:hover{background:var(--kit-dark);}
+  .status-msg{font-size:.82rem;margin-top:8px;color:#8A5A45;}
+
+  .lock-icon{font-size:.85rem;}
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="/">← Другая страна</a>
+  <h1>🇪🇸 Испания</h1>
+  <p class="sub">Нужная фраза под рукой — выбери ситуацию.</p>
+</header>
+<main id="app">
+  <p style="color:#8A9591;">Загрузка…</p>
+</main>
+
+<script>
+const COUNTRY = "es";
+const FREE_SCENARIO_COUNT = 5; // сколько сценариев доступны без подписки
+
+let scenariosData = null;
+let userEmail = localStorage.getItem("aptechka_email_" + COUNTRY) || "";
+let isSubscribed = false;
+
+async function init() {
+  const res = await fetch(`/data/scenarios-${COUNTRY}.json`);
+  scenariosData = await res.json();
+
+  if (userEmail) {
+    await checkSubscription();
+  }
+
+  render();
+}
+
+async function checkSubscription() {
+  try {
+    const res = await fetch(`/api/subscription-status?email=${encodeURIComponent(userEmail)}&country=${COUNTRY}`);
+    const data = await res.json();
+    isSubscribed = !!data.active;
+  } catch (e) {
+    isSubscribed = false;
+  }
+}
+
+function render() {
+  const app = document.getElementById("app");
+  app.innerHTML = "";
+
+  scenariosData.scenarios.forEach((scenario, i) => {
+    const locked = i >= FREE_SCENARIO_COUNT && !isSubscribed;
+    const avatarName = scenariosData.avatars[scenario.avatar];
+
+    const el = document.createElement("div");
+    el.className = "scenario" + (locked ? " locked" : "");
+
+    const head = document.createElement("div");
+    head.className = "scenario-head";
+    head.innerHTML = `
+      <div>
+        <div class="scenario-title">${locked ? "🔒 " : ""}${scenario.title}</div>
+        <div class="avatar-tag">${avatarName}</div>
+      </div>
+      <span class="chevron">▾</span>
+    `;
+    head.addEventListener("click", () => {
+      if (locked) return;
+      el.classList.toggle("open");
+    });
+    el.appendChild(head);
+
+    if (!locked) {
+      const body = document.createElement("div");
+      body.className = "scenario-body";
+      scenario.phrases.forEach((phrase, idx) => {
+        body.appendChild(renderPhrase(scenario.id, idx + 1, phrase));
+      });
+      el.appendChild(body);
+    }
+
+    app.appendChild(el);
+  });
+
+  if (!isSubscribed) {
+    app.appendChild(renderLockBanner());
+  }
+}
+
+function renderPhrase(scenarioId, index, phrase) {
+  const wrap = document.createElement("div");
+  wrap.className = "phrase";
+
+  const localSrc = `/audio/${COUNTRY}/${scenarioId}-${index}-${COUNTRY}.mp3`;
+  const enSrc = `/audio/${COUNTRY}/${scenarioId}-${index}-en.mp3`;
+
+  wrap.innerHTML = `
+    <div class="phrase-ru">${phrase.ru}</div>
+    <div class="phrase-target">${phrase[COUNTRY]}</div>
+    <div class="phrase-actions">
+      <button class="play" data-src="${localSrc}">▶ Слушать</button>
+      <button class="en-toggle" data-src="${enSrc}">🇬🇧 EN</button>
+    </div>
+  `;
+
+  const audio = new Audio();
+  wrap.querySelectorAll("button[data-src]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      audio.src = btn.getAttribute("data-src");
+      audio.play().catch(() => {});
+    });
+  });
+
+  return wrap;
+}
+
+function renderLockBanner() {
+  const div = document.createElement("div");
+  div.className = "lock-banner";
+  div.innerHTML = `
+    <p>Остальные сценарии открываются по подписке. Введи email — пришлём доступ.</p>
+    <div class="unlock-form">
+      <input type="email" id="unlock-email" placeholder="твой email" value="${userEmail}">
+      <button id="unlock-btn">Оформить</button>
+    </div>
+    <div class="status-msg" id="unlock-status"></div>
+  `;
+
+  div.querySelector("#unlock-btn").addEventListener("click", async () => {
+    const email = div.querySelector("#unlock-email").value.trim();
+    const statusEl = div.querySelector("#unlock-status");
+    if (!email || !email.includes("@")) {
+      statusEl.textContent = "Введи корректный email.";
+      return;
+    }
+    localStorage.setItem("aptechka_email_" + COUNTRY, email);
+    userEmail = email;
+    statusEl.textContent = "Переходим к оплате…";
+
+    try {
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, country: COUNTRY }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        statusEl.textContent = "Ошибка, попробуй ещё раз.";
+      }
+    } catch (e) {
+      statusEl.textContent = "Ошибка сети, попробуй ещё раз.";
+    }
+  });
+
+  return div;
+}
+
+init();
+</script>
+</body>
+</html>
