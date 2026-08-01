@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Аптечка фраз — испанские фразы с озвучкой для русскоязычных в Испании</title>
+<meta name="description" content="Готовые испанские фразы с озвучкой: Empadronamiento, NIE, поликлиника, банк и другое. Справочник, а не курс — открыл тему, нажал, сказал.">
+<link rel="canonical" href="https://aptechkafraz.com/es/">
+<link rel="alternate" hreflang="ru-de" href="https://aptechkafraz.com/es/">
+<link rel="alternate" hreflang="ru-es" href="https://aptechkafraz.com/es/">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.44.0/tabler-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js" defer></script>
+<style>
+  :root{
+    --paper:#F1F4F7;--card:#FFFFFF;--ink:#142033;--ink-soft:#5C6B7D;--muted:#9AA4B0;
+    --border:#D7DEE6;--blue:#0B4EA2;--blue-dark:#083A7A;--red:#C8102E;
+    --shadow:0 1px 3px rgba(20,32,51,0.06);--radius:10px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;min-height:100vh;padding-bottom:96px;}
+  h1,h2,h3,.display{font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:-0.01em;margin:0;}
+  a{color:inherit;}
+  button{font-family:inherit;cursor:pointer;}
+  i.ti{line-height:1;}
+
+  .flag-stripe{height:5px;display:flex;}
+  .flag-stripe span{flex:1;}
+  .flag-stripe span:nth-child(1){background:#C60B1E;}
+  .flag-stripe span:nth-child(2){background:#FFC400;}
+  .flag-stripe span:nth-child(3){background:#C60B1E;}
+
+  .site-watermark{position:fixed;inset:0;z-index:-1;display:flex;align-items:center;justify-content:center;pointer-events:none;overflow:hidden;}
+  .site-watermark svg{width:80vw;max-width:640px;opacity:0.05;}
+
+  header.top{padding:22px 20px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{width:36px;height:36px;border-radius:8px;background:var(--blue);color:#fff;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .logo-mark i{font-size:18px;}
+  .logo-text{font-weight:800;font-size:16px;letter-spacing:0.02em;line-height:1;text-transform:uppercase;}
+  .logo-text small{display:block;font-weight:500;font-size:9.5px;color:var(--muted);margin-top:4px;letter-spacing:0.07em;text-transform:uppercase;}
+  .header-right{display:flex;align-items:center;gap:8px;}
+  .back-chip{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 13px;
+    font-size:13.5px;font-weight:700;color:var(--ink-soft);box-shadow:var(--shadow);text-decoration:none;
+    display:inline-flex;align-items:center;gap:5px;}
+  .account-btn{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 18px;
+    font-size:15px;font-weight:700;color:var(--ink-soft);box-shadow:var(--shadow);white-space:nowrap;}
+  .account-btn.is-active{color:var(--blue-dark);border-color:#c9d9ee;background:#EEF3FA;}
+
+  .hero{padding:2px 20px 22px;text-align:center;}
+  .hero h2{font-size:22px;line-height:1.22;margin-bottom:10px;}
+  .hero p{font-size:15px;font-weight:700;color:var(--ink);line-height:1.45;margin:0 auto;max-width:480px;}
+
+  .search-wrap{padding:0 20px 6px;}
+  .search-box{position:relative;}
+  .search-box input{width:100%;padding:14px 16px 14px 44px;border-radius:8px;border:1px solid var(--border);
+    background:var(--card);font-size:15px;font-family:'Inter',sans-serif;color:var(--ink);box-shadow:var(--shadow);}
+  .search-box input:focus{outline:2px solid var(--blue);outline-offset:1px;}
+  .search-box i{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px;}
+
+  .section-label{padding:22px 20px 10px;font-size:13.5px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);}
+  .section-label.free{color:var(--blue-dark);}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 20px;}
+  .topic-card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:14px 14px 13px;text-align:left;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:7px;
+    min-height:104px;-webkit-tap-highlight-color:transparent;transition:transform .12s ease;}
+  .topic-card:active{transform:scale(0.97);}
+  .topic-eyebrow{font-size:9.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);}
+  .topic-card.locked .topic-eyebrow{color:#B7BEC7;}
+  .topic-tab{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .topic-tab i{font-size:16px;}
+  .topic-tab.doc{background:#E5EDF6;color:var(--blue);}
+  .topic-tab.alert{background:#FBE5E5;color:var(--red);}
+  .topic-tab.locked{background:#E7E9EC;color:#8C97A3;}
+  .topic-name{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.25;}
+  .topic-card.locked .topic-name{color:var(--ink-soft);}
+  .topic-lock{position:absolute;top:13px;right:13px;color:var(--muted);font-size:13px;}
+  .topic-stamp{position:absolute;top:9px;right:9px;width:34px;height:34px;border:1.5px solid var(--red);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;transform:rotate(-8deg);background:rgba(200,16,46,0.03);}
+  .topic-stamp span{font-size:6px;font-weight:800;color:var(--red);letter-spacing:0.01em;text-align:center;line-height:1.15;}
+
+  footer.site-footer{margin-top:8px;padding:24px 20px 28px;background:#141B2E;color:#C7CCDA;}
+  footer.site-footer .footer-inner{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;}
+  footer.site-footer .footer-left{flex:1 1 320px;min-width:0;}
+  footer.site-footer .footer-links{margin-bottom:8px;font-size:12.5px;}
+  footer.site-footer .footer-links a{color:#9FB2E0;text-decoration:none;font-weight:600;}
+  footer.site-footer .footer-links .sep{color:#3B4360;padding:0 6px;}
+  footer.site-footer .footer-copy{font-size:12.5px;color:#7A8199;margin-bottom:8px;line-height:1.5;}
+  footer.site-footer .footer-sponsor{font-size:12.5px;color:#7A8199;}
+  footer.site-footer .footer-sponsor a{color:#9FB2E0;font-weight:600;text-decoration:none;}
+  footer.site-footer .footer-contact{background:var(--card);color:var(--blue-dark);border:1px solid var(--border);
+    border-radius:8px;padding:10px 16px;font-size:13.5px;font-weight:700;text-decoration:none;white-space:nowrap;}
+  @media (max-width:640px){
+    footer.site-footer{padding:16px 20px 18px;}
+    footer.site-footer .footer-inner{flex-direction:column;align-items:center;text-align:center;gap:8px;}
+    footer.site-footer .footer-links{margin-bottom:4px;}
+    footer.site-footer .footer-copy{margin-bottom:4px;}
+    footer.site-footer .footer-contact{padding:8px 14px;font-size:13px;}
+  }
+
+  .fab{position:fixed;left:20px;right:20px;bottom:20px;max-width:360px;margin:0 auto;background:var(--ink);
+    color:#fff;border:none;border-radius:12px;padding:16px 18px;font-size:16px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 8px 24px rgba(27,36,48,0.28);z-index:40;}
+  .fab i{flex-shrink:0;font-size:19px;}
+
+  .topic-view{display:none;}
+  .topic-view.active{display:block;}
+  .grid-view.hidden,.search-wrap.hidden,.section-label.hidden{display:none;}
+
+  .topic-header{padding:20px 20px 14px;display:flex;align-items:flex-start;gap:12px;}
+  .back-btn{background:var(--card);border:1px solid var(--border);border-radius:8px;height:40px;padding:0 14px 0 12px;
+    display:flex;align-items:center;gap:6px;box-shadow:var(--shadow);flex-shrink:0;font-size:18px;color:var(--ink);}
+  .back-btn span{font-size:14.5px;font-weight:700;}
+  .topic-header h2{font-size:21px;}
+  .topic-header .avatar-tag{display:inline-block;margin-top:5px;font-size:13.5px;font-weight:700;color:var(--muted);}
+
+  .phrase-list{padding:4px 20px 20px;display:flex;flex-direction:column;gap:10px;}
+  .phrase-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px 15px 15px 16px;
+    display:flex;align-items:center;gap:12px;box-shadow:var(--shadow);position:relative;}
+  .phrase-text{flex:1;min-width:0;}
+  .phrase-target{font-size:19px;font-weight:700;color:var(--ink);line-height:1.32;}
+  .phrase-ru{font-size:15px;font-weight:500;color:var(--ink-soft);margin-top:4px;line-height:1.35;}
+  .play-btn{flex-shrink:0;width:44px;height:44px;border-radius:100px;border:1px solid #C7D8ED;background:#E5EDF6;
+    color:var(--blue);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(11,78,162,0.12);font-size:18px;}
+  .play-btn.playing{background:#D2E2F5;}
+  .play-btn:disabled{opacity:0.5;}
+
+  .mode-toggle{display:flex;gap:6px;margin:0 20px 16px;background:var(--card);border:1px solid var(--border);
+    border-radius:100px;padding:4px;box-shadow:var(--shadow);}
+  .mode-toggle button{flex:1;border:none;background:transparent;border-radius:100px;padding:12px 12px;
+    font-size:15px;font-weight:700;color:var(--ink-soft);}
+  .mode-toggle button.active{background:var(--blue);color:#fff;}
+
+  .speed-toggle-wrap{text-align:center;padding:0 20px 14px;}
+  .speed-toggle{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1.5px solid var(--red);
+    border-radius:100px;padding:9px 16px;font-size:13.5px;font-weight:800;color:var(--red);box-shadow:var(--shadow);}
+  .speed-toggle i{font-size:16px;}
+  .speed-toggle.active{background:var(--red);border-color:var(--red);color:#fff;}
+  .speed-toggle-hint{display:block;margin-top:6px;font-size:12px;color:var(--muted);}
+
+  .mic-btn{flex-shrink:0;width:44px;height:44px;border-radius:100px;border:none;background:var(--red);color:#fff;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(200,16,46,0.35);font-size:18px;}
+  .mic-btn.recording{background:#8F0C21;animation:pulseRec 1s ease-in-out infinite;}
+  .mic-btn:disabled{opacity:0.5;}
+  @keyframes pulseRec{0%,100%{box-shadow:0 0 0 0 rgba(200,16,46,0.45);}50%{box-shadow:0 0 0 8px rgba(200,16,46,0);}}
+  .score-pill{position:absolute;top:-8px;right:8px;font-size:10.5px;font-weight:800;padding:3px 8px;
+    border-radius:100px;color:#fff;white-space:nowrap;}
+  .score-pill.waiting{font-size:10px;padding:4px 9px;animation:blinkWait 1s ease-in-out infinite;}
+  @keyframes blinkWait{0%,100%{opacity:1;}50%{opacity:0.35;}}
+
+  .avatar-overlay{position:fixed;inset:0;background:rgba(27,36,48,0.55);display:none;align-items:center;
+    justify-content:center;z-index:120;padding:24px;}
+  .avatar-overlay.active{display:flex;}
+  .avatar-panel{background:var(--ink);border-radius:12px;overflow:hidden;width:100%;max-width:320px;box-shadow:0 20px 50px rgba(0,0,0,0.4);}
+  .avatar-panel video{width:100%;display:block;background:#000;aspect-ratio:9/16;max-height:60vh;}
+  .avatar-panel .avatar-caption{padding:12px 16px 16px;color:#fff;font-size:14.5px;text-align:center;}
+  .avatar-panel .avatar-caption b{display:block;font-size:16.5px;margin-bottom:2px;}
+
+  .locked-panel{margin:4px 20px 20px;background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:26px 22px;text-align:center;box-shadow:var(--shadow);}
+  .locked-panel .lock-icon{width:52px;height:52px;border-radius:10px;background:#EEF3FA;color:var(--blue);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:24px;}
+  .locked-panel p{font-size:15.5px;color:var(--ink-soft);line-height:1.5;margin:8px 0 18px;}
+
+  .btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--blue);color:#fff;
+    border:none;border-radius:13px;padding:16px 20px;font-size:16.5px;font-weight:700;width:100%;
+    box-shadow:0 4px 14px rgba(44,90,160,0.28);}
+  .btn-primary:active{background:var(--blue-dark);}
+  .btn-secondary{display:inline-flex;align-items:center;justify-content:center;background:transparent;
+    color:var(--blue-dark);border:none;padding:13px;font-size:15px;font-weight:700;width:100%;}
+
+  .modal-overlay{position:fixed;inset:0;background:rgba(27,36,48,0.5);display:none;align-items:flex-end;
+    justify-content:center;z-index:100;}
+  .modal-overlay.active{display:flex;}
+  .modal{background:var(--paper);width:100%;max-width:440px;border-radius:14px 14px 0 0;padding:22px 22px 28px;
+    max-height:88vh;overflow-y:auto;position:relative;}
+  .modal-drag{width:36px;height:4px;background:var(--border);border-radius:100px;margin:0 auto 16px;}
+  .modal h3{font-size:21px;margin-bottom:6px;}
+  .modal .sub{font-size:15px;color:var(--ink-soft);margin-bottom:18px;line-height:1.45;}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:13.5px;font-weight:700;color:var(--ink-soft);margin-bottom:6px;}
+  .field input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--border);background:var(--card);
+    font-size:17px;font-family:'Inter',sans-serif;}
+  .field input:focus{outline:2px solid var(--blue);outline-offset:1px;}
+  .modal-close{position:absolute;top:18px;right:18px;background:var(--card);border:1px solid var(--border);
+    width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;}
+  .modal-msg{font-size:14.5px;padding:11px 13px;border-radius:10px;margin-bottom:14px;display:none;}
+  .modal-msg.show{display:block;}
+  .modal-msg.error{background:#FBE9E9;color:#A83232;}
+  .modal-msg.success{background:#E9F2E4;color:#3E7B34;}
+  .modal-switch{text-align:center;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .modal-switch button{background:none;border:none;color:var(--blue-dark);font-weight:700;font-size:14.5px;padding:0;text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<div class="site-watermark" aria-hidden="true">
+  <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <clipPath id="esShieldWm">
+        <path d="M30 25 Q30 15 40 15 L160 15 Q170 15 170 25 L170 130
+                 Q170 155 150 165 Q130 175 100 195 Q70 175 50 165
+                 Q30 155 30 130 Z"/>
+      </clipPath>
+    </defs>
+    <g clip-path="url(#esShieldWm)">
+      <rect x="20" y="10" width="76" height="95" fill="#C60B1E"/>
+      <rect x="96" y="10" width="76" height="95" fill="#FFC400"/>
+      <rect x="20" y="105" width="76" height="95" fill="#FFC400"/>
+      <rect x="96" y="105" width="76" height="95" fill="#C60B1E"/>
+      <rect x="45" y="30" width="26" height="30" fill="#FFC400"/>
+      <rect x="120" y="130" width="26" height="30" fill="#C60B1E"/>
+    </g>
+  </svg>
+</div>
+
+<div class="flag-stripe"><span></span><span></span><span></span></div>
+
+<header class="top">
+  <div class="logo">
+    <div class="logo-mark"><i class="ti ti-id-badge-2" aria-hidden="true"></i></div>
+    <h1 class="logo-text">Аптечка фраз<small>испанские фразы с озвучкой</small></h1>
+  </div>
+  <div class="header-right">
+    <a class="back-chip" href="/"><i class="ti ti-arrow-left" aria-hidden="true"></i> Другая страна</a>
+    <button class="account-btn" id="accountBtn" onclick="onAccountClick()">Войти</button>
+  </div>
+</header>
+
+<div class="hero">
+  <h2>🇪🇸 Не знаешь, как сказать? Мы — под рукой.</h2>
+  <p>Готовые немецкие фразы с озвучкой на любую ситуацию — от Empadronamiento до поликлиники. Не курс, а справочник: открыл тему, нажал, сказал. 5 тем — бесплатно навсегда.</p>
+</div>
+
+<div id="gridView">
+  <div class="search-wrap">
+    <div class="search-box">
+      <i class="ti ti-search" aria-hidden="true"></i>
+      <input type="text" id="searchInput" placeholder="Найти тему..." oninput="renderGrid()">
+    </div>
+  </div>
+
+  <div class="section-label free">Бесплатно навсегда</div>
+  <div class="grid" id="freeGrid"></div>
+
+  <div class="section-label">Полный доступ по подписке</div>
+  <div class="grid" id="lockedGrid"></div>
+  <div style="height:4px"></div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-links">
+          <a href="/gdpr.html">Политика конфиденциальности</a><span class="sep">|</span>
+          <a href="/vop.html">Условия использования</a><span class="sep">|</span>
+          <a href="/faq.html">Частые вопросы (FAQ)</a>
+        </div>
+        <div class="footer-copy">© 2026 Dagny s.r.o. Все права защищены.</div>
+        <div class="footer-sponsor">спонсор — <a href="https://dagny.sk/" target="_blank" rel="noopener sponsored">@relokant_safety</a></div>
+      </div>
+      <a class="footer-contact" href="/faq.html#contact">Написать нам</a>
+    </div>
+  </footer>
+</div>
+
+<div class="topic-view" id="topicView">
+  <div class="topic-header">
+    <button class="back-btn" onclick="closeTopic()">
+      <i class="ti ti-arrow-left" aria-hidden="true"></i>
+      <span>Назад</span>
+    </button>
+    <div>
+      <h2 id="topicTitle"></h2>
+      <span class="avatar-tag" id="topicAvatarTag"></span>
+    </div>
+  </div>
+
+  <div class="mode-toggle" id="modeToggle" style="display:none;">
+    <button id="modeRefBtn" class="active" onclick="setPracticeMode(false)">Справочник</button>
+    <button id="modePracticeBtn" onclick="setPracticeMode(true)">🎤 Практика</button>
+  </div>
+
+  <div class="speed-toggle-wrap" id="speedToggleWrap">
+    <button class="speed-toggle" id="speedToggle" onclick="toggleSlowAudio()">
+      <i class="ti ti-turtle" aria-hidden="true"></i>
+      <span id="speedToggleText">Помедленнее</span>
+    </button>
+    <span class="speed-toggle-hint">Замедляет все фразы</span>
+  </div>
+
+  <div id="phraseListWrap"></div>
+  <div id="lockedPanelWrap"></div>
+</div>
+
+<div class="avatar-overlay" id="avatarOverlay">
+  <div class="avatar-panel">
+    <video id="avatarVideo" playsinline preload="auto"></video>
+    <div class="avatar-caption">
+      <b id="avatarCaptionTitle"></b>
+      <span id="avatarCaptionSub"></span>
+    </div>
+  </div>
+</div>
+
+<button class="fab" onclick="openModule()">
+  <i class="ti ti-message-question" aria-hidden="true"></i>
+  <span>Не понял ответ?</span>
+</button>
+
+<div class="modal-overlay" id="moduleOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('moduleOverlay')"><i class="ti ti-x" aria-hidden="true"></i></button>
+    <div class="modal-drag"></div>
+    <h3>Если не понял ответ</h3>
+    <p class="sub">Эти фразы доступны всегда, из любого места — бесплатно.</p>
+    <div class="phrase-list" id="moduleList" style="padding:0;"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="paywallOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('paywallOverlay')"><i class="ti ti-x" aria-hidden="true"></i></button>
+    <div class="modal-drag"></div>
+    <h3>Полный доступ к Аптечке фраз</h3>
+    <p class="sub">Все темы и практика произношения по подписке, отменить можно в любой момент.</p>
+    <div class="modal-msg error" id="paywallMsg"></div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" id="paywallEmail" placeholder="you@email.com" autocomplete="email">
+    </div>
+    <button class="btn-primary" id="paywallSubmit" onclick="startCheckout()">Оформить доступ</button>
+    <div class="modal-switch"><span>Уже оплачивали? </span><button onclick="switchModal('paywallOverlay','loginOverlay')">Войти</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="loginOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('loginOverlay')"><i class="ti ti-x" aria-hidden="true"></i></button>
+    <div class="modal-drag"></div>
+    <h3>Войти</h3>
+    <p class="sub">Введите email, которым оформляли подписку.</p>
+    <div class="modal-msg error" id="loginMsg"></div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" id="loginEmail" placeholder="you@email.com" autocomplete="email">
+    </div>
+    <button class="btn-primary" id="loginSubmit" onclick="submitLogin()">Войти</button>
+    <div class="modal-switch"><span>Ещё нет доступа? </span><button onclick="switchModal('loginOverlay','paywallOverlay')">Оформить</button></div>
+  </div>
+</div>
+
+<audio id="player" preload="none"></audio>
+
+<script>
+const COUNTRY = "es";
+const SPEECH_LANG = "es-ES";
+const FREE_COUNT = 5;
+
+const AVATAR_LABEL = { official:'Рассказывает Анна', everyday:'Рассказывает Виктор' };
+const AVATAR_KEY_TO_FILE = { official:'anna', everyday:'viktor' };
+
+const AVATAR_INTRO = {
+  official: { file:`anna-${COUNTRY}-intro`, title:'Анна', text:'Произнеси фразу вслух, я оценю произношение.' },
+  everyday: { file:`viktor-${COUNTRY}-intro`, title:'Виктор', text:'Произнеси фразу вслух, я скажу, всё ли понятно.' },
+};
+const AVATAR_REACTIONS = {
+  official: [
+    { min:85, file:`anna-${COUNTRY}-reaction-01`, title:'Отлично!', text:'Точное произношение.', color:'#3E7B34' },
+    { min:65, file:`anna-${COUNTRY}-reaction-02`, title:'Хорошо', text:'Попробуй ещё раз, ещё лучше.', color:'#C6841A' },
+    { min:40, file:`anna-${COUNTRY}-reaction-03`, title:'Попробуй ещё раз', text:'', color:'#C6841A' },
+    { min:0,  file:`anna-${COUNTRY}-reaction-04`, title:'Медленнее', text:'Попробуй произнести медленнее.', color:'#D64545' },
+  ],
+  everyday: [
+    { min:85, file:`viktor-${COUNTRY}-reaction-01`, title:'Отлично!', text:'Точное произношение.', color:'#3E7B34' },
+    { min:65, file:`viktor-${COUNTRY}-reaction-02`, title:'Хорошо', text:'Попробуй ещё раз, ещё лучше.', color:'#C6841A' },
+    { min:40, file:`viktor-${COUNTRY}-reaction-03`, title:'Попробуй ещё раз', text:'', color:'#C6841A' },
+    { min:0,  file:`viktor-${COUNTRY}-reaction-04`, title:'Медленнее', text:'Попробуй произнести медленнее.', color:'#D64545' },
+  ],
+};
+function pickReaction(avatarKey, score){
+  const list = AVATAR_REACTIONS[avatarKey] || AVATAR_REACTIONS.official;
+  return list.find(r => score >= r.min) || list[list.length-1];
+}
+
+let SCENARIOS = [];
+let UNIVERSAL_MODULE = [];
+
+async function loadData(){
+  const res = await fetch(`/data/scenarios-${COUNTRY}.json`);
+  const data = await res.json();
+  SCENARIOS = data.scenarios.map((s, i) => ({ ...s, free: i < FREE_COUNT }));
+  // Универсальный модуль переиспользует пару уже готовых "общих" фраз — расширим отдельным контентом позже.
+  UNIVERSAL_MODULE = [
+    { scenarioId: SCENARIOS[0].id, index: 5, ...SCENARIOS[0].phrases[4] },
+  ];
+  renderGrid();
+}
+
+/* ==================== ACCESS STATE ==================== */
+let access = loadAccess();
+function loadAccess(){ try{ return JSON.parse(localStorage.getItem(`aptechka_access_${COUNTRY}`)) || null; } catch{ return null; } }
+function saveAccess(a){ access=a; localStorage.setItem(`aptechka_access_${COUNTRY}`, JSON.stringify(a)); updateAccountBtn(); }
+function clearAccess(){ access=null; localStorage.removeItem(`aptechka_access_${COUNTRY}`); updateAccountBtn(); }
+function hasFullAccess(){ return !!(access && access.active); }
+function updateAccountBtn(){
+  const btn = document.getElementById('accountBtn');
+  if(hasFullAccess()){ btn.textContent='Мой доступ'; btn.classList.add('is-active'); }
+  else { btn.textContent='Войти'; btn.classList.remove('is-active'); }
+}
+function onAccountClick(){
+  if(hasFullAccess()){ if(confirm('Выйти из аккаунта на этом устройстве?')) clearAccess(); }
+  else openLogin();
+}
+
+/* ==================== GRID ==================== */
+function renderGrid(){
+  const q = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+  const free = SCENARIOS.filter(s => s.free && s.title.toLowerCase().includes(q));
+  const locked = SCENARIOS.filter(s => !s.free && s.title.toLowerCase().includes(q));
+  document.getElementById('freeGrid').innerHTML = free.map(cardHtml).join('');
+  document.getElementById('lockedGrid').innerHTML = locked.map(cardHtml).join('');
+  document.querySelectorAll('.topic-card').forEach(el => el.addEventListener('click', () => openTopic(el.dataset.id)));
+}
+function cardHtml(s){
+  const unlocked = s.free || hasFullAccess();
+  const num = String(SCENARIOS.indexOf(s) + 1).padStart(2, '0');
+  const tabClass = !unlocked ? 'locked' : 'doc';
+  return `
+    <button class="topic-card ${unlocked?'':'locked'}" data-id="${s.id}">
+      <div class="topic-tab ${tabClass}"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+      <div class="topic-eyebrow">Тема ${num}</div>
+      <div class="topic-name">${s.title}</div>
+      ${s.free ? `<div class="topic-stamp"><span>БЕСПЛ.</span></div>` : (unlocked ? '' : '<i class="ti ti-lock topic-lock" aria-hidden="true"></i>')}
+    </button>`;
+}
+
+/* ==================== TOPIC VIEW ==================== */
+let currentTopicId = null;
+let practiceMode = false;
+
+function openTopic(id){
+  const s = SCENARIOS.find(x => x.id === id);
+  if(!s) return;
+  currentTopicId = id;
+  practiceMode = false;
+  document.getElementById('gridView').style.display = 'none';
+  document.getElementById('topicView').classList.add('active');
+  document.getElementById('topicTitle').textContent = s.title;
+  document.getElementById('topicAvatarTag').textContent = AVATAR_LABEL[s.avatar] || '';
+
+  const unlocked = s.free || hasFullAccess();
+  const lockedWrap = document.getElementById('lockedPanelWrap');
+  const toggle = document.getElementById('modeToggle');
+  const speedWrap = document.getElementById('speedToggleWrap');
+
+  if(unlocked){
+    toggle.style.display = 'flex';
+    speedWrap.style.display = 'block';
+    document.getElementById('modeRefBtn').classList.add('active');
+    document.getElementById('modePracticeBtn').classList.remove('active');
+    renderPhraseList(s);
+    lockedWrap.innerHTML = '';
+  } else {
+    toggle.style.display = 'none';
+    speedWrap.style.display = 'none';
+    document.getElementById('phraseListWrap').innerHTML = '';
+    lockedWrap.innerHTML = `
+      <div class="locked-panel">
+        <div class="lock-icon"><i class="ti ti-lock" aria-hidden="true"></i></div>
+        <h3 style="font-size:16px;">Тема «${s.title}» — в полном доступе</h3>
+        <p>Готовые фразы с озвучкой появятся здесь с полным доступом, вместе с остальными темами.</p>
+        <button class="btn-primary" onclick="openPaywall()">Оформить доступ</button>
+        <button class="btn-secondary" onclick="switchToLogin()">Уже оплачивали? Войти</button>
+      </div>`;
+  }
+  window.scrollTo(0,0);
+}
+
+function renderPhraseList(s){
+  const listWrap = document.getElementById('phraseListWrap');
+  listWrap.innerHTML = `<div class="phrase-list">${s.phrases.map((p, i) => phraseCardHtml(s.id, i+1, p, practiceMode)).join('')}</div>`;
+  bindPlayButtons(listWrap);
+  if(practiceMode) bindMicButtons(listWrap, s);
+}
+
+function setPracticeMode(isPractice){
+  const s = SCENARIOS.find(x => x.id === currentTopicId);
+  if(!s) return;
+  practiceMode = isPractice;
+  document.getElementById('modeRefBtn').classList.toggle('active', !isPractice);
+  document.getElementById('modePracticeBtn').classList.toggle('active', isPractice);
+  renderPhraseList(s);
+  if(isPractice){
+    getAzureSpeechToken();
+    preloadAvatarVideos(s.avatar);
+    const seenKey = `aptechka_intro_seen_${COUNTRY}_${s.avatar}`;
+    if(!sessionStorage.getItem(seenKey)){
+      sessionStorage.setItem(seenKey, '1');
+      showAvatarIntro(s.avatar);
+    }
+  }
+}
+
+const preloadedAvatars = new Set();
+function preloadAvatarVideos(avatarKey){
+  if(preloadedAvatars.has(avatarKey)) return;
+  preloadedAvatars.add(avatarKey);
+  const files = [AVATAR_INTRO[avatarKey]?.file, ...(AVATAR_REACTIONS[avatarKey]||[]).map(r=>r.file)].filter(Boolean);
+  files.forEach(file => {
+    const link = document.createElement('link');
+    link.rel = 'preload'; link.as = 'video'; link.href = `/video/${file}.mp4`;
+    document.head.appendChild(link);
+  });
+}
+
+function phraseCardHtml(scenarioId, index, phrase, mode){
+  const target = phrase[COUNTRY];
+  const fileKey = `${scenarioId}-${index}-${COUNTRY}`;
+  const micBtn = mode ? `
+    <button class="mic-btn" data-file="${fileKey}" data-target="${target.replace(/"/g,'&quot;')}" aria-label="Записать произношение">
+      <i class="ti ti-microphone" aria-hidden="true"></i>
+    </button>` : '';
+  return `
+    <div class="phrase-card" id="phrase-${fileKey}">
+      <div class="phrase-text">
+        <div class="phrase-target">${target}</div>
+        <div class="phrase-ru">${phrase.ru}</div>
+      </div>
+      <button class="play-btn" data-file="${fileKey}" aria-label="Прослушать">
+        <i class="ti ti-repeat" aria-hidden="true"></i>
+      </button>
+      ${micBtn}
+    </div>`;
+}
+
+function bindPlayButtons(scope){
+  scope.querySelectorAll('.play-btn').forEach(btn => btn.addEventListener('click', () => playAudio(btn.dataset.file, btn)));
+}
+
+function closeTopic(){
+  currentTopicId = null;
+  document.getElementById('topicView').classList.remove('active');
+  document.getElementById('gridView').style.display = 'block';
+  renderGrid();
+}
+
+/* ==================== AUDIO ==================== */
+const player = document.getElementById('player');
+let activeBtn = null;
+let slowAudio = localStorage.getItem('aptechka_slow_audio') === '1';
+
+function applyPlaybackRate(){
+  const rate = slowAudio ? 0.72 : 1;
+  player.playbackRate = rate;
+  player.preservesPitch = true; player.mozPreservesPitch = true; player.webkitPreservesPitch = true;
+}
+function toggleSlowAudio(){
+  slowAudio = !slowAudio;
+  localStorage.setItem('aptechka_slow_audio', slowAudio ? '1' : '0');
+  updateSpeedToggleUI();
+}
+function updateSpeedToggleUI(){
+  const btn = document.getElementById('speedToggle');
+  const label = document.getElementById('speedToggleText');
+  if(!btn || !label) return;
+  btn.classList.toggle('active', slowAudio);
+  label.textContent = slowAudio ? 'Обычная скорость' : 'Помедленнее';
+}
+function playAudio(fileKey, btn){
+  if(activeBtn && activeBtn!==btn) activeBtn.classList.remove('playing');
+  player.src = `/audio/${COUNTRY}/${fileKey}.mp3`;
+  applyPlaybackRate();
+  player.play().catch(e => console.warn('Playback failed:', fileKey, e));
+  btn.classList.add('playing');
+  activeBtn = btn;
+  player.onended = () => btn.classList.remove('playing');
+}
+
+/* ==================== PRACTICE MODE ==================== */
+let azureTokenCache = null;
+const AZURE_TOKEN_MAX_AGE_MS = 8 * 60 * 1000;
+
+async function getAzureSpeechToken(){
+  if(azureTokenCache && (Date.now() - azureTokenCache.fetchedAt) < AZURE_TOKEN_MAX_AGE_MS) return azureTokenCache;
+  try{
+    const res = await fetch('/api/speech-token');
+    const data = await res.json();
+    azureTokenCache = { token:data.token, region:data.region, fetchedAt:Date.now() };
+    return azureTokenCache;
+  } catch(e){ console.warn('Could not fetch Azure speech token:', e); return null; }
+}
+
+function bindMicButtons(scope, scenario){
+  scope.querySelectorAll('.mic-btn').forEach(btn => btn.addEventListener('click', () => recordPronunciation(btn, scenario)));
+}
+
+async function recordPronunciation(btn, scenario){
+  if(typeof SpeechSDK === 'undefined'){ alert('Модуль распознавания речи ещё загружается, попробуйте через секунду.'); return; }
+  const auth = await getAzureSpeechToken();
+  if(!auth){ alert('Не удалось подключиться к сервису оценки произношения.'); return; }
+
+  const targetText = btn.dataset.target;
+  btn.classList.add('recording'); btn.disabled = true;
+  showWaitingPill(btn.dataset.file);
+
+  try{
+    const speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(auth.token, auth.region);
+    speechConfig.speechRecognitionLanguage = SPEECH_LANG;
+    const audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+    const pronunciationConfig = new SpeechSDK.PronunciationAssessmentConfig(
+      targetText, SpeechSDK.PronunciationAssessmentGradingSystem.HundredMark,
+      SpeechSDK.PronunciationAssessmentGranularity.Phoneme, true
+    );
+    const recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+    pronunciationConfig.applyTo(recognizer);
+
+    recognizer.recognizeOnceAsync(
+      result => {
+        btn.classList.remove('recording'); btn.disabled = false; recognizer.close();
+        if(result.reason === SpeechSDK.ResultReason.Canceled){
+          hideWaitingPill(btn.dataset.file);
+          alert('Техническая ошибка распознавания.'); return;
+        }
+        if(result.reason !== SpeechSDK.ResultReason.RecognizedSpeech){
+          hideWaitingPill(btn.dataset.file);
+          alert('Не удалось распознать речь. Попробуйте ещё раз, ближе к микрофону.'); return;
+        }
+        const assessment = SpeechSDK.PronunciationAssessmentResult.fromResult(result);
+        const score = Math.round(assessment.accuracyScore || 0);
+        showScorePill(btn.dataset.file, score);
+        showAvatarReaction(scenario.avatar, score);
+      },
+      err => {
+        btn.classList.remove('recording'); btn.disabled = false; recognizer.close();
+        hideWaitingPill(btn.dataset.file);
+        alert('Ошибка распознавания. Проверьте доступ к микрофону.');
+      }
+    );
+  } catch(e){
+    btn.classList.remove('recording'); btn.disabled = false;
+    hideWaitingPill(btn.dataset.file);
+    alert('Не удалось включить микрофон. Проверьте разрешения браузера.');
+  }
+}
+
+function showWaitingPill(file){
+  const card = document.getElementById(`phrase-${file}`); if(!card) return;
+  let pill = card.querySelector('.score-pill');
+  if(!pill){ pill = document.createElement('div'); pill.className='score-pill'; card.appendChild(pill); }
+  pill.classList.add('waiting'); pill.style.background='var(--blue)'; pill.textContent='Ждите...';
+}
+function showScorePill(file, score){
+  const card = document.getElementById(`phrase-${file}`); if(!card) return;
+  let pill = card.querySelector('.score-pill');
+  if(!pill){ pill = document.createElement('div'); pill.className='score-pill'; card.appendChild(pill); }
+  pill.classList.remove('waiting');
+  pill.style.background = score>=85 ? '#3E7B34' : score>=65 ? '#C6841A' : '#D64545';
+  pill.textContent = `${score}`;
+}
+function hideWaitingPill(file){
+  const card = document.getElementById(`phrase-${file}`); if(!card) return;
+  const pill = card.querySelector('.score-pill.waiting'); if(pill) pill.remove();
+}
+
+function showAvatarIntro(avatarKey){
+  const intro = AVATAR_INTRO[avatarKey]; if(!intro) return;
+  const overlay = document.getElementById('avatarOverlay');
+  const video = document.getElementById('avatarVideo');
+  document.getElementById('avatarCaptionTitle').textContent = intro.title;
+  document.getElementById('avatarCaptionSub').textContent = intro.text;
+  video.src = `/video/${intro.file}.mp4`;
+  video.muted = false;
+  overlay.classList.add('active');
+  video.play().catch(()=>{});
+  video.onended = () => overlay.classList.remove('active');
+  overlay.onclick = (e) => { if(e.target===overlay) overlay.classList.remove('active'); };
+}
+function showAvatarReaction(avatarKey, score){
+  const reaction = pickReaction(avatarKey, score);
+  const overlay = document.getElementById('avatarOverlay');
+  const video = document.getElementById('avatarVideo');
+  document.getElementById('avatarCaptionTitle').textContent = `${reaction.title} · ${score}/100`;
+  document.getElementById('avatarCaptionSub').textContent = reaction.text;
+  video.src = `/video/${reaction.file}.mp4`;
+  video.muted = false;
+  overlay.classList.add('active');
+  video.play().catch(()=>{});
+  video.onended = () => overlay.classList.remove('active');
+  overlay.onclick = (e) => { if(e.target===overlay) overlay.classList.remove('active'); };
+}
+
+/* ==================== UNIVERSAL MODULE ==================== */
+function openModule(){
+  document.getElementById('moduleList').innerHTML = UNIVERSAL_MODULE.map(p =>
+    phraseCardHtml(p.scenarioId, p.index, p, false)
+  ).join('');
+  bindPlayButtons(document.getElementById('moduleList'));
+  document.getElementById('moduleOverlay').classList.add('active');
+}
+
+/* ==================== MODALS ==================== */
+function closeModal(id){ document.getElementById(id).classList.remove('active'); }
+function switchModal(fromId, toId){ closeModal(fromId); document.getElementById(toId).classList.add('active'); }
+function switchToLogin(){ document.getElementById('loginOverlay').classList.add('active'); }
+
+function openPaywall(){
+  document.getElementById('paywallEmail').value = access?.email || localStorage.getItem(`aptechka_pending_email_${COUNTRY}`) || '';
+  document.getElementById('paywallMsg').classList.remove('show');
+  document.getElementById('paywallOverlay').classList.add('active');
+}
+function openLogin(){
+  document.getElementById('loginEmail').value = access?.email || localStorage.getItem(`aptechka_pending_email_${COUNTRY}`) || '';
+  document.getElementById('loginMsg').classList.remove('show');
+  document.getElementById('loginOverlay').classList.add('active');
+}
+function setMsg(id, text, kind){
+  const el = document.getElementById(id);
+  el.textContent = text; el.className = `modal-msg show ${kind}`;
+}
+
+async function startCheckout(){
+  const email = document.getElementById('paywallEmail').value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setMsg('paywallMsg','Введите корректный email.','error'); return; }
+  const submitBtn = document.getElementById('paywallSubmit');
+  submitBtn.disabled = true; submitBtn.textContent = 'Подождите...';
+  try{
+    localStorage.setItem(`aptechka_pending_email_${COUNTRY}`, email);
+    const res = await fetch('/api/create-checkout-session', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ email, country: COUNTRY }),
+    });
+    const data = await res.json();
+    if(!res.ok || !data.url){
+      setMsg('paywallMsg', data.error || 'Не удалось начать оплату.', 'error');
+      submitBtn.disabled = false; submitBtn.textContent = 'Оформить доступ';
+      return;
+    }
+    window.location.href = data.url;
+  } catch(e){
+    setMsg('paywallMsg', 'Нет соединения. Попробуйте снова.', 'error');
+    submitBtn.disabled = false; submitBtn.textContent = 'Оформить доступ';
+  }
+}
+
+async function submitLogin(){
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setMsg('loginMsg','Введите корректный email.','error'); return; }
+  const submitBtn = document.getElementById('loginSubmit');
+  submitBtn.disabled = true; submitBtn.textContent = 'Проверка...';
+  try{
+    const res = await fetch(`/api/subscription-status?email=${encodeURIComponent(email)}&country=${COUNTRY}`);
+    const data = await res.json();
+    if(!data.active){
+      setMsg('loginMsg', 'Подписка неактивна для этого email.', 'error');
+      submitBtn.disabled = false; submitBtn.textContent = 'Войти';
+      return;
+    }
+    saveAccess({ email, active:true, checkedAt:Date.now() });
+    closeModal('loginOverlay');
+    renderGrid();
+    if(currentTopicId) openTopic(currentTopicId);
+  } catch(e){
+    setMsg('loginMsg', 'Нет соединения. Попробуйте снова.', 'error');
+    submitBtn.disabled = false; submitBtn.textContent = 'Войти';
+  }
+}
+
+/* ==================== INIT ==================== */
+function handleUrlParams(){
+  const params = new URLSearchParams(window.location.search);
+  const payment = params.get('payment');
+  if(payment === 'success'){ openLogin(); setMsg('loginMsg', 'Оплата прошла успешно! Введите тот же email, чтобы войти.', 'success'); }
+  if(payment){
+    const url = new URL(window.location.href);
+    url.searchParams.delete('payment');
+    window.history.replaceState({}, '', url.toString());
+  }
+}
+
+updateAccountBtn();
+loadData();
+handleUrlParams();
+</script>
+</body>
+</html>
